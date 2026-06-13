@@ -161,3 +161,5 @@ app.use((req, res) => {
 app.listen(PORT, () => {
     console.log(`Sport Science Applied server is running on http://localhost:${PORT}`);
 });
+
+// Live deployment verification comment
