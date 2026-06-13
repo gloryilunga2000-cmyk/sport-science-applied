@@ -16,19 +16,20 @@ const bookingController = require('./controllers/bookingController');
 const chatController = require('./controllers/chatController');
 const SportModel = require('./models/sportModel');
 
-// 🌟 CONFIGURING SHARED TRANSPORTER FOR THE NEW ROUTE
+// 🌟 PRODUCTION-HARDENED SMTP TRANSPORTER PIPELINE
 const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST || 'smtp.mail.yahoo.com',
-    port: parseInt(process.env.EMAIL_PORT) || 587, // 🌟 Changed default fallback to 587
-    secure: false, // 🌟 Must be false for port 587/TLS connection streams
+    host: 'smtp.mail.yahoo.com', // 🌟 Hardcoded to guarantee it hits Yahoo, not localhost (::1)
+    port: 587,                   // 🌟 Using production-stable TLS port 587
+    secure: false,               // 🌟 Must be false for port 587
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
     },
     tls: {
-        rejectUnauthorized: false // 🌟 Bypasses cloud data center handshake blocks
+        rejectUnauthorized: false // 🌟 Bypasses data center network handshake drops
     }
 });
+
 // Set EJS as the "View" engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
