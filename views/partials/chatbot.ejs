@@ -1,0 +1,62 @@
+<a href="#research-section" class="chat-trigger-btn" id="chatTrigger" style="text-decoration: none;">
+    <div class="trigger-content-wrapper">
+        <svg class="robot-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 8V4H8" />
+            <rect width="16" height="12" x="4" y="8" rx="2" />
+            <path d="M2 14h2" />
+            <path d="M20 14h2" />
+            <path d="M15 13v2" />
+            <path d="M9 13v2" />
+        </svg>
+        <span class="trigger-text-label">Ask Sport Science AI</span>
+    </div>
+</a>
+
+<style>
+    /* Fixed Positioning Layout for the Capsule Button */
+    .chat-trigger-btn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: #1e293b; 
+        color: #ffffff;
+        border: none;
+        padding: 0 20px;
+        height: 52px; 
+        border-radius: 26px; /* Forms smooth capsule corners */
+        cursor: pointer;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999; 
+        transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    /* Elegant hover animation */
+    .chat-trigger-btn:hover { 
+        transform: translateY(-3px) scale(1.02); 
+        background-color: #0f172a; 
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Centers the robot vector and wording side-by-side inside the button */
+    .trigger-content-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+    }
+
+    .robot-icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+    }
+
+    .trigger-text-label {
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        white-space: nowrap; /* Forces text to stay perfectly centered on a single line */
+    }
+</style>

@@ -1,0 +1,420 @@
+<%- include('partials/header') %>
+
+<div id="home-top"></div>
+
+<section class="hero wide-container">
+    <h1>Evidence-Based Performance Systems</h1>
+    <p>Bridging the gap between athletic research and real-world application. Explore specialized physiological demands or utilize our integrated neural engine below.</p>
+</section>
+
+<section id="sports-section" class="section-divider wide-container">
+    <h2 class="section-title">Explore Sport Code Information</h2>
+    <div class="grid">
+        <% sportsList.forEach(sport => { %>
+            <a href="/sports/<%= sport.code %>" class="card">
+                <h3><%= sport.title %></h3>
+                <p>View scientific demands &rarr;</p>
+            </a>
+        <% }) %>
+    </div>
+</section>
+
+<section id="research-section" class="section-divider wide-container">
+    <div style="text-align: center; margin-bottom: 25px;">
+        <h2 class="section-title" style="margin-bottom: 5px;">Sport Science Research Engine</h2>
+        <p style="color: #64748b; margin: 0; font-size: 1.05rem;">Query our elite biomechanist agent for rapid athletic data synthesis.</p>
+    </div>
+
+    <div class="page-chat-container">
+        <div class="chat-box" id="pageChatBox">
+            <div class="message ai-message">
+                <strong>Assistant:</strong> Welcome to your integrated home workspace. Ask me to break down comprehensive training metrics or biochemical adaptations.
+            </div>
+        </div>
+        <div class="loading-indicator" id="pageLoadingIndicator">
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            <span style="margin-left: 8px; font-size: 0.9rem; color: #64748b;">Analyzing databases...</span>
+        </div>
+        <form class="input-area" id="pageChatForm">
+            <input type="text" id="pageUserInput" placeholder="Ask about athletic protocols, biology..." autocomplete="off" required>
+            <button type="submit" id="pageSendBtn">Query Engine</button>
+        </form>
+    </div>
+</section>
+
+<section id="about-section" class="section-divider wide-container">
+    <div class="about-grid-layout">
+        
+        <div class="about-narrative-box">
+            <div style="text-align: center; margin-bottom: 25px; width: 100%;">
+                <img src="/images/sport-science-logo.png" alt="Sport Science Applied Logo" style="height: 90px; width: auto; object-fit: contain;">
+            </div>
+
+            <h2 class="section-title" style="text-align: left; margin-bottom: 15px;">About Sport Science Applied</h2>
+            <p class="about-lead-text">Developing elite athletes by utilizing the global sport science community through a truly holistic lens.</p>
+            <p class="about-body-text">At Sport Science Applied, we do more than synthesize athletic research—we build infrastructure for physical breakthroughs. A primary component of our mission is **linking specialized sport science facilities with the right athletic clientele**. We connect advanced testing labs, metrics-driven strength facilities, and biochemical analysis hubs with high-performance competitors who demand exact, data-driven training ecosystems.</p>
+            
+            <div class="about-badge-row">
+                <span class="network-badge">✓ Verified Lab Networks</span>
+                <span class="network-badge">✓ Science Supported Interventions</span>
+                <span class="network-badge">✓ Qualified Sport Science Network</span>
+                <span class="network-badge">✓ Network of Gyms and Trainers</span>
+            </div>
+        </div>
+
+        <div class="gym-register-card">
+            <h3 style="margin-top: 0; color: #1e293b; font-size: 1.3rem; margin-bottom: 5px;">Register Your Facility</h3>
+            <p style="color: #64748b; margin: 0 0 20px 0; font-size: 0.9rem;">Join our indexed network to unlock specialized client pipelines.</p>
+            
+            <form id="asyncGymForm" style="display: flex; flex-direction: column; gap: 12px;">
+                <div>
+                    <label class="form-label">Facility Name</label>
+                    <input type="text" id="gymName" name="gymName" class="form-input" required>
+                </div>
+                <div>
+                    <label class="form-label">Contact Email</label>
+                    <input type="email" id="gymEmail" name="gymEmail" class="form-input" required>
+                </div>
+                <div>
+                    <label class="form-label">Facility Contact Number</label>
+                    <input type="tel" id="gymPhone" name="gymPhone" class="form-input" placeholder="e.g., +1 (555) 019-2834" required>
+                </div>
+                <div>
+                    <label class="form-label">Primary Testing/Training Focus</label>
+                    <select id="gymFocus" name="gymFocus" class="form-input">
+                        <option value="biomechanics">Biomechanics & Force Plate Labs</option>
+                        <option value="metabolic">Metabolic Testing & VO2 Analysis</option>
+                        <option value="strength">High-Performance Strength & Conditioning</option>
+                        <option value="multi">Full Multi-Disciplinary Center</option>
+                        <option value="other">Other...</option>
+                    </select>
+                </div>
+
+                <div id="customFocusWrapper" style="display: none; animation: slideDownField 0.22s ease-out;">
+                    <label class="form-label">Specify Your Specialization</label>
+                    <input type="text" id="gymCustomFocus" name="gymCustomFocus" class="form-input" placeholder="e.g., Neuro-Athletic Training, Cryotherapy...">
+                </div>
+
+                <button type="submit" id="gymSubmitBtn" class="booking-submit-btn" style="background-color: #1e293b; margin-top: 5px;">Register Facility to Network</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<section id="booking-section" class="booking-stage-wrapper">
+    
+    <aside class="booking-rail">
+        <div class="slide-stack">
+            <div class="slide-img" style="background-image: url('/slideshow/slide1.jpg'); animation-delay: 0s;"></div>
+            <div class="slide-img" style="background-image: url('/slideshow/slide2.jpg'); animation-delay: 5s;"></div>
+            <div class="slide-img" style="background-image: url('/slideshow/slide3.jpg'); animation-delay: 10s;"></div>
+            <div class="slide-img" style="background-image: url('/slideshow/slide4.jpg'); animation-delay: 15s;"></div>
+            <div class="slide-img" style="background-image: url('/slideshow/slide5.jpg'); animation-delay: 20s;"></div>
+            <div class="slide-img" style="background-image: url('/slideshow/slide6.jpg'); animation-delay: 25s;"></div>
+            <div class="slide-img" style="background-image: url('/slideshow/slide7.jpg'); animation-delay: 30s;"></div>
+            <div class="slide-img" style="background-image: url('/slideshow/slide9.jpg'); animation-delay: 35s;"></div>
+        </div>
+    </aside>
+
+    <div class="booking-center-box">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h2 class="section-title" style="margin-bottom: 5px; text-align: left;">Book a Consultation</h2>
+            <p style="color: #64748b; margin: 0; font-size: 1rem; text-align: left;">Schedule an elite programming sync with our human team.</p>
+        </div>
+
+        <div class="booking-form-card">
+            <form id="asyncBookingForm" style="display: flex; flex-direction: column; gap: 15px;">
+                <div>
+                    <label class="form-label">Full Name</label>
+                    <input type="text" id="bookingName" name="name" class="form-input" required>
+                </div>
+                <div>
+                    <label class="form-label">Email Address</label>
+                    <input type="email" id="bookingEmail" name="email" class="form-input" required>
+                </div>
+                <div>
+                    <label class="form-label">Target Sport Focus</label>
+                    <select id="bookingSport" name="sport" class="form-input">
+                        <% sportsList.forEach(sport => { %>
+                            <option value="<%= sport.code %>"><%= sport.title %></option>
+                        <% }) %>
+                        <option value="other">Other / Multi-Sport System...</option>
+                    </select>
+                </div>
+                <button type="submit" id="bookingSubmitBtn" class="booking-submit-btn">Submit Booking Request</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div class="popup-modal-overlay" id="bookingModalOverlay">
+    <div class="popup-modal-card">
+        <div class="modal-status-icon" id="modalIcon">✓</div>
+        <h3 class="modal-headline" id="modalTitle">Request Logged</h3>
+        <p class="modal-message" id="modalDescription">Your synchronization request was successfully verified across our systems database.</p>
+        <button class="modal-close-btn" onclick="closeNotificationModal()">Return to Dashboard</button>
+    </div>
+</div>
+
+<style>
+    html { scroll-behavior: smooth; }
+
+    .wide-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+    .section-divider { padding: 60px 0; border-bottom: 1px solid #e2e8f0; }
+    .section-title { color: #1e293b; font-size: 1.8rem; text-align: center; margin-top: 0; }
+    .hero { text-align: center; margin-top: 20px; }
+
+    /* CHAT WORKSPACE CORE LAYOUT SHEET */
+    .page-chat-container { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; height: 450px; overflow: hidden; width: 100%; box-sizing: border-box; }
+    .chat-box { flex: 1; padding: 25px; overflow-y: auto; background-color: #fafafa; display: flex; flex-direction: column; gap: 15px; }
+    .message { padding: 12px 18px; border-radius: 10px; max-width: 80%; line-height: 1.5; font-size: 0.98rem; box-sizing: border-box; }
+    .ai-message { background-color: #f1f5f9; color: #1e293b; align-self: flex-start; border-left: 4px solid #007BFF; white-space: pre-line; }
+    .user-message { background-color: #1e293b; color: #ffffff; align-self: flex-end; }
+    .input-area { display: flex; border-top: 1px solid #e2e8f0; padding: 15px; background: #ffffff; gap: 10px; }
+    #pageUserInput { flex: 1; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; background-color: #f8fafc; outline: none; }
+    #pageSendBtn { background-color: #007BFF; color: white; border: none; padding: 0 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background-color 0.15s ease; }
+    #pageSendBtn:hover { background-color: #0056b3; }
+    .loading-indicator { display: none; align-items: center; padding: 10px 25px; background: #fafafa; }
+    .dot { width: 8px; height: 8px; background-color: #94a3b8; border-radius: 50%; margin-right: 4px; animation: wave 1.3s infinite ease-in-out; }
+    .dot:nth-child(2) { animation-delay: -1.1s; }
+    .dot:nth-child(3) { animation-delay: -0.9s; }
+    @keyframes wave { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+
+    /* ABOUT US & GYM PORTAL VISUAL RULES */
+    .about-grid-layout { display: flex; gap: 60px; align-items: center; width: 100%; box-sizing: border-box; }
+    .about-narrative-box { flex: 1.2; min-width: 0; }
+    .gym-register-card { flex: 1; min-width: 320px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 30px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); box-sizing: border-box; }
+    .about-lead-text { font-size: 1.25rem; font-weight: 600; color: #1e293b; line-height: 1.5; margin: 0 0 15px 0; }
+    .about-body-text { font-size: 1.05rem; color: #475569; line-height: 1.6; margin: 0 0 25px 0; }
+    .about-badge-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .network-badge { background-color: #f1f5f9; color: #475569; font-weight: 600; font-size: 0.84rem; padding: 6px 14px; border-radius: 20px; border: 1px solid #e2e8f0; white-space: nowrap; }
+
+    /* FORM DESIGNS CORE ASSEMBLY */
+    .booking-stage-wrapper { display: flex; justify-content: flex-start; align-items: flex-start; gap: 50px; max-width: 1200px; margin: 60px auto; padding: 0 20px; box-sizing: border-box; width: 100%; }
+    .booking-center-box { flex: 1; width: 100%; }
+    .booking-form-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 35px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); box-sizing: border-box; }
+    .form-label { display: block; font-weight: bold; margin-bottom: 6px; color: #475569; font-size: 0.9rem; text-align: left; }
+    .form-input { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem; outline: none; color: #1e293b !important; background-color: #ffffff !important; }
+    .form-input:focus { border-color: #007BFF; }
+    .form-input option { color: #1e293b !important; background-color: #ffffff !important; }
+    .booking-submit-btn { background: #007BFF; color: white; border: none; padding: 14px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px; width: 100%; transition: background 0.15s; font-size: 1rem; }
+    .booking-submit-btn:hover { background: #0056b3; }
+
+    /* SINGLE SLIDESHOW CONTROL PANEL HOOKS */
+    .booking-rail { width: 280px; height: 420px; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; background-color: #f8fafc; flex-shrink: 0; }
+    .slide-stack { position: relative; width: 100%; height: 100%; }
+    .slide-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0; border-radius: 16px; animation: crossFadeLeftRail 40s infinite ease-in-out; }
+    @keyframes crossFadeLeftRail { 0% { opacity: 0; transform: scale(1.02); } 3% { opacity: 1; transform: scale(1); } 12.5% { opacity: 1; } 15.5% { opacity: 0; transform: scale(0.98); } 100% { opacity: 0; } }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 25px; width: 100%; }
+
+    /* ACTION ALERTS DIALOGUE WINDOWS OVERLAYS */
+    .popup-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 1000000; }
+    .popup-modal-card { background: #ffffff; padding: 40px; border-radius: 16px; max-width: 440px; width: 90%; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04); animation: slideUpModal 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    @keyframes slideUpModal { 0% { transform: translateY(20px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+    .modal-status-icon { width: 60px; height: 60px; background-color: #dcfce7; color: #15803d; border-radius: 50%; font-size: 1.8rem; font-weight: bold; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; }
+    .modal-status-icon.error-state { background-color: #fee2e2; color: #b91c1c; }
+    .modal-headline { margin: 0 0 10px 0; color: #1e293b; font-size: 1.4rem; font-weight: 700; }
+    .modal-message { margin: 0 0 25px 0; color: #64748b; font-size: 0.98rem; line-height: 1.5; }
+    .popup-modal-card .modal-close-btn { background-color: #1e293b; color: #ffffff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background-color 0.15s ease; width: 100%; }
+    .popup-modal-card .modal-close-btn:hover { background-color: #0f172a; }
+
+    /* DYNAMIC EXPANSION ENTRY ELEMENT ANIMATION KEYFRAME */
+    @keyframes slideDownField {
+        0% { opacity: 0; transform: translateY(-8px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) { 
+        .booking-stage-wrapper { flex-direction: column-reverse; gap: 30px; } 
+        .booking-rail { width: 100%; height: 300px; } 
+        .about-grid-layout { flex-direction: column; gap: 35px; }
+        .gym-register-card { width: 100%; }
+    }
+</style>
+
+<script>
+    // --- CHAT MODULE EXECUTION ROOT ---
+    const pageForm = document.getElementById('pageChatForm');
+    const pageInput = document.getElementById('pageUserInput');
+    const pageBox = document.getElementById('pageChatBox');
+    const pageLoader = document.getElementById('pageLoadingIndicator');
+
+    pageForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const textMessage = pageInput.value.trim();
+        if(!textMessage) return;
+
+        appendPageMessage(textMessage, 'user-message', 'You');
+        pageInput.value = ''; 
+        pageLoader.style.display = 'flex';
+        pageBox.scrollTop = pageBox.scrollHeight;
+
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: textMessage })
+            });
+            const data = await response.json();
+            pageLoader.style.display = 'none';
+
+            if(data.reply) {
+                appendPageMessage(data.reply, 'ai-message', 'Assistant');
+            } else {
+                appendPageMessage("The analysis engine timed out.", 'ai-message', 'System');
+            }
+        } catch (error) {
+            pageLoader.style.display = 'none';
+            appendPageMessage("Connection issue.", 'ai-message', 'System');
+        }
+        pageBox.scrollTop = pageBox.scrollHeight;
+    });
+
+    function appendPageMessage(text, className, sender) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `message ${className}`;
+        if (className === 'ai-message' && sender === 'Assistant') {
+            msgDiv.innerHTML = `<strong>${sender}:</strong> <span class="page-typing-text"></span>`;
+            pageBox.appendChild(msgDiv);
+            const textSpan = msgDiv.querySelector('.page-typing-text');
+            let index = 0;
+            function typeWriter() {
+                if (index < text.length) {
+                    textSpan.innerHTML += text.charAt(index);
+                    index++;
+                    pageBox.scrollTop = pageBox.scrollHeight;
+                    setTimeout(typeWriter, 10);
+                }
+            }
+            typeWriter();
+        } else {
+            msgDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            pageBox.appendChild(msgDiv);
+        }
+    }
+
+    // --- POPUP MODAL HOOK REFERENCES ---
+    const modalOverlay = document.getElementById('bookingModalOverlay');
+    const modalIcon = document.getElementById('modalIcon');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+
+    function closeNotificationModal() { modalOverlay.style.display = "none"; }
+
+    // --- CLIENT BOOKING ASYMMETRIC SUBMISSION ---
+    const asyncBookingForm = document.getElementById('asyncBookingForm');
+    const bookingSubmitBtn = document.getElementById('bookingSubmitBtn');
+
+    asyncBookingForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        bookingSubmitBtn.disabled = true;
+        bookingSubmitBtn.innerHTML = "Processing File Logs...";
+
+        try {
+            const response = await fetch('/booking/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: document.getElementById('bookingName').value,
+                    email: document.getElementById('bookingEmail').value,
+                    sport: document.getElementById('bookingSport').value
+                })
+            });
+            const feedbackResult = await response.json();
+
+            if (response.ok && feedbackResult.success) {
+                modalIcon.classList.remove('error-state');
+                modalIcon.innerHTML = "✓";
+                modalTitle.innerHTML = "Consultation Logged!";
+                modalDescription.innerHTML = "Your entry profiles were safely indexed. Check your inbox for scheduling coordinates.";
+                asyncBookingForm.reset();
+            } else {
+                modalIcon.classList.add('error-state');
+                modalIcon.innerHTML = "✕";
+                modalTitle.innerHTML = "Processing Error";
+                modalDescription.innerHTML = feedbackResult.message || "Something went wrong internally.";
+            }
+        } catch (error) {
+            modalIcon.classList.add('error-state');
+            modalIcon.innerHTML = "✕";
+            modalTitle.innerHTML = "Mail Link Dropped";
+            modalDescription.innerHTML = "SMTP link dropped out, but your local user interface is operating normally.";
+        }
+        modalOverlay.style.display = "flex";
+        bookingSubmitBtn.disabled = false;
+        bookingSubmitBtn.innerHTML = "Submit Booking Request";
+    });
+
+    // --- GYM PORTAL DROPDOWN INTERACTION LOGIC ---
+    const gymFocusSelect = document.getElementById('gymFocus');
+    const customFocusWrapper = document.getElementById('customFocusWrapper');
+    const gymCustomFocusInput = document.getElementById('gymCustomFocus');
+
+    gymFocusSelect.addEventListener('change', function() {
+        if (this.value === 'other') {
+            customFocusWrapper.style.display = 'block';
+            gymCustomFocusInput.required = true;
+            gymCustomFocusInput.focus();
+        } else {
+            customFocusWrapper.style.display = 'none';
+            gymCustomFocusInput.required = false;
+            gymCustomFocusInput.value = '';
+        }
+    });
+
+    // --- GYM NETWORK FORM ASYNC SUBMISSION WIRE ---
+    const asyncGymForm = document.getElementById('asyncGymForm');
+    const gymSubmitBtn = document.getElementById('gymSubmitBtn');
+
+    asyncGymForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        gymSubmitBtn.disabled = true;
+        gymSubmitBtn.innerHTML = "Indexing Facility Details...";
+
+        let operationalFocus = gymFocusSelect.value;
+        if (operationalFocus === 'other') {
+            operationalFocus = gymCustomFocusInput.value.trim();
+        }
+
+        const gymData = {
+            gymName: document.getElementById('gymName').value,
+            gymEmail: document.getElementById('gymEmail').value,
+            gymPhone: document.getElementById('gymPhone').value, // 🌟 Synchronized dynamic telephone capture value
+            gymFocus: operationalFocus
+        };
+
+        try {
+            const response = await fetch('/gym/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(gymData)
+            });
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                modalIcon.classList.remove('error-state');
+                modalIcon.innerHTML = "✓";
+                modalTitle.innerHTML = "Facility Registered!";
+                modalDescription.innerHTML = `"${gymData.gymName}" has been queued for data indexing. An integration agent will contact your team shortly.`;
+                asyncGymForm.reset();
+                customFocusWrapper.style.display = 'none';
+            } else {
+                modalIcon.classList.add('error-state');
+                modalIcon.innerHTML = "✕";
+                modalTitle.innerHTML = "Registration Halt";
+                modalDescription.innerHTML = result.message || "Could not register your facility at this moment.";
+            }
+        } catch (error) {
+            modalIcon.classList.add('error-state');
+            modalIcon.innerHTML = "✕";
+            modalTitle.innerHTML = "Network Check Offline";
+            modalDescription.innerHTML = "The data packet was logged locally, but connection boundaries prevented database sync.";
+        }
+        modalOverlay.style.display = "flex";
+        gymSubmitBtn.disabled = false;
+        gymSubmitBtn.innerHTML = "Register Facility to Network";
+    });
+</script>
+
+<%- include('partials/footer') %>

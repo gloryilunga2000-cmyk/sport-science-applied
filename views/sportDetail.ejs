@@ -1,0 +1,97 @@
+<%- include('partials/header') %>
+
+<main class="sport-detail-layout">
+    <div class="sport-text-content">
+        <a href="/" class="back-link">← Back to Home</a>
+        
+        <h1><%= sport.title %></h1>
+        
+        <h3>Physiological & Biomechanical Demands</h3>
+        <p><%= sport.demands %></p>
+
+        <h3>Key Performance Indicators (KPIs)</h3>
+        <ul class="metric-list">
+            <% sport.metrics.forEach(function(metric) { %>
+                <li><%= metric %></li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <div class="sport-image-container">
+        <% if (sport.image) { %>
+            <img src="<%= sport.image %>" alt="<%= sport.title %> Performance Graphic" class="sport-feature-graphic">
+        <% } else { %>
+            <div class="sport-image-placeholder">
+                <span>Image Profile Pending</span>
+            </div>
+        <% } %>
+    </div>
+</main>
+
+<style>
+    /* 🌟 MODERN SPLIT ROW GRID SYSTEM 🌟 */
+    .sport-detail-layout {
+        display: flex;
+        gap: 50px;
+        align-items: flex-start;
+        margin-top: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Isolate text block scaling */
+    .sport-text-content {
+        flex: 1.4;
+        min-width: 0;
+    }
+
+    /* Isolate feature picture card block */
+    .sport-image-container {
+        flex: 1;
+        min-width: 320px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+        border: 1px solid #e2e8f0;
+        background-color: #f8fafc;
+    }
+
+    .sport-feature-graphic {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        max-height: 480px;
+        transition: transform 0.3s ease;
+    }
+    .sport-feature-graphic:hover {
+        transform: scale(1.01);
+    }
+
+    /* Placeholder style fallback if image file is ever blank */
+    .sport-image-placeholder {
+        width: 100%;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #94a3b8;
+        font-weight: 500;
+        font-size: 0.95rem;
+        background-color: #f1f5f9;
+    }
+
+    /* Clean mobile responsive scaling stack toggle */
+    @media (max-width: 850px) {
+        .sport-detail-layout {
+            flex-direction: column-reverse; /* Stacks photo cleanly below text stream */
+            gap: 35px;
+        }
+        .sport-image-container {
+            width: 100%;
+            min-width: 100%;
+        }
+    }
+</style>
+
+<%- include('partials/footer') %>

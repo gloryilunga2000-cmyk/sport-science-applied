@@ -1,0 +1,118 @@
+<%- include('partials/header') %>
+
+<main style="max-width: 650px; margin: 40px auto; padding: 0 10px;">
+    
+    <div style="text-align: center; margin-bottom: 35px;">
+        <h1 style="color: #1e293b; font-size: 2.2rem; margin-bottom: 10px;">Request a Consultation</h1>
+        <p style="color: #64748b; font-size: 1.1rem; margin: 0;">Take the first step toward optimizing your athletic performance with evidence-based data.</p>
+    </div>
+
+    <div class="booking-card">
+        <form action="/booking/submit" method="POST">
+            
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="e.g., Alex Johnson" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="e.g., alex@athlete.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="service">Required Consultation Service</label>
+                <div class="select-wrapper">
+                    <select id="service" name="service" required>
+                        <option value="" disabled selected>Select a sport science service...</option>
+                        <option value="Biomechanics Analysis">Biomechanics Analysis</option>
+                        <option value="VO2 Max / Physiological Testing">VO2 Max / Physiological Testing</option>
+                        <option value="Athletic Performance Programming">Athletic Performance Programming</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Athlete Profile & Goals</label>
+                <textarea id="notes" name="notes" rows="5" placeholder="Tell us about your current sport code, training volume, or specific performance goals..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Booking Request</button>
+        </form>
+    </div>
+</main>
+
+<style>
+    /* Card Container with subtle light shadow */
+    .booking-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Form Layout Elements */
+    .form-group {
+        margin-bottom: 24px;
+    }
+
+    /* Target labels with our home hero dark accent */
+    label {
+        display: block;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+    }
+
+    /* Inputs styled cleanly with modern focus transitions */
+    input, select, textarea {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 1rem;
+        color: #334155;
+        background-color: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        box-sizing: border-box;
+        transition: all 0.2s ease-in-out;
+    }
+
+    /* Focus state links back to home accent colors */
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        background-color: #ffffff;
+        border-color: #007BFF;
+        box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+    }
+
+    /* Customizing textareas for notes */
+    textarea {
+        resize: vertical;
+        font-family: inherit;
+    }
+
+    /* Submit Button styling utilizing the dark hero slate layout */
+    .submit-btn {
+        width: 100%;
+        background-color: #1e293b;
+        color: #ffffff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        margin-top: 10px;
+    }
+
+    /* Hover effect highlights it to standard interactive blue */
+    .submit-btn:hover {
+        background-color: #0f172a;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    }
+</style>
+
+<%- include('partials/footer') %>
