@@ -19,14 +19,16 @@ const SportModel = require('./models/sportModel');
 // 🌟 CONFIGURING SHARED TRANSPORTER FOR THE NEW ROUTE
 const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST || 'smtp.mail.yahoo.com',
-    port: parseInt(process.env.EMAIL_PORT) || 465,
-    secure: true, 
+    port: parseInt(process.env.EMAIL_PORT) || 587, // 🌟 Changed default fallback to 587
+    secure: false, // 🌟 Must be false for port 587/TLS connection streams
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
+    },
+    tls: {
+        rejectUnauthorized: false // 🌟 Bypasses cloud data center handshake blocks
     }
 });
-
 // Set EJS as the "View" engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -162,4 +164,4 @@ app.listen(PORT, () => {
     console.log(`Sport Science Applied server is running on http://localhost:${PORT}`);
 });
 
-// Live deployment verification comment
+// Live deployment verification commentgit status
