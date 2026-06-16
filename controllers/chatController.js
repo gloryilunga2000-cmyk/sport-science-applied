@@ -1,31 +1,32 @@
 const { GoogleGenAI } = require('@google/genai');
 
-// Explicitly link the API key
+// 🤖 Securely initialize using your Render environment variable
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 exports.handleChatMessage = async (req, res) => {
+    const { message } = req.body;
+
     try {
-        const { message } = req.body;
-
-        if (!message) {
-            return res.status(400).json({ error: "Message cannot be empty." });
-        }
-
+        // ⚡ HIGH-VELOCITY TIMEOUT BYPASS CONFIGURATION
         const response = await ai.models.generateContent({
-            model: 'gemini-3.5-flash',
+            model: 'gemini-2.5-flash', // Light, blazing-fast streaming architecture
             contents: message,
             config: {
-                systemInstruction: "You are the Sport Science Applied AI Research Assistant. You are a world-class elite sports scientist and biomechanist. Your purpose is to answer athletic queries using rigorous, evidence-based research. When discussing scientific studies, cite specific journals, methodologies, or researchers. Keep answers clear, professional, and highly practical for coaches or athletes.",
-                // 🛠️ REMOVED THE GOOGLE SEARCH TOOLS LINE TO STAY ON THE FREE TIER
-                temperature: 0.5
+                // 🌟 CRUCIAL: Turns off the reasoning delay so it responds in under 2 seconds!
+                thinkingConfig: { thinkingBudget: 0 } 
             }
         });
 
-        const aiAnswer = response.text;
-        res.json({ reply: aiAnswer });
+        return res.status(200).json({ 
+            success: true, 
+            reply: response.text 
+        });
 
     } catch (error) {
-        console.error("Gemini API Error:", error);
-        res.status(500).json({ error: "The Sport Science Assistant encountered a processing error. Please try again." });
+        console.error("Gemini Handshake Failure:", error);
+        return res.status(500).json({ 
+            success: false, 
+            message: "AI pipeline latency block encountered." 
+        });
     }
 };
