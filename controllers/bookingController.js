@@ -23,7 +23,7 @@ exports.handleBookingSubmit = async (req, res) => {
         // 🌟 FIXED: Defining mailOptions so the sendMail method has a payload to deliver! 🌟
         const mailOptions = {
             from: process.env.EMAIL_USER, // Your authenticated Yahoo email address
-            to: process.env.EMAIL_USER,   // Where you want to receive the notifications
+            to: process.env.RECEIVER_EMAIL,   // Where you want to receive the notifications
             subject: `New Consultation Sync Request: ${name}`,
             html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; max-width: 600px; border: 1px solid #e2e8f0; border-radius: 8px;">
