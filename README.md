@@ -27,6 +27,9 @@ An athletic performance tracking matrix and global facility network database hub
 
 To run this platform on your local machine, follow these steps:
 
+## On Deployment
+I failed to successfully connect an email to the site to receive all submission of bookings and facility registrations. SMTP error. Possibly google's, yahoo's backend security declining access through node or express. 
+
 ### 1. Clone the Repository
 ```bash
 git clone [https://github.com/gloryilunga2000-cmyk/sport-science-applied.git](https://github.com/gloryilunga2000-cmyk/sport-science-applied.git)
