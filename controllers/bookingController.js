@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    host: 'smtp-relay.brevo.com',
     port: 587,
     secure: false, 
     auth: {
@@ -12,7 +12,6 @@ const transporter = nodemailer.createTransport({
         rejectUnauthorized: false
     },
     connectionTimeout: 10000, 
-    family: 4 
 });
 
 // ⚡ EXTRA SAFETY CHECK: Verify SMTP connection pool on boot without crashing
