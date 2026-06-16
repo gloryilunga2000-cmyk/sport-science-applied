@@ -18,7 +18,7 @@ const SportModel = require('./models/sportModel');
 
 // 🌟 PRODUCTION-HARDENED SMTP TRANSPORTER PIPELINE
 const transporter = nodemailer.createTransport({
-    host: 'smtp.mail.yahoo.com', // 🌟 Hardcoded to guarantee it hits Yahoo, not localhost (::1)
+    host: 'smtp.gmail.com', // 🌟 Hardcoded to guarantee it hits Yahoo, not localhost (::1)
     port: 587,                   // 🌟 Using production-stable TLS port 587
     secure: false,               // 🌟 Must be false for port 587
     auth: {
