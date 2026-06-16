@@ -3,16 +3,19 @@ const nodemailer = require('nodemailer');
 
 // 1. Configure the email transporter using bulletproof Google settings
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',  // 🌟 Hardcoded directly to Google's cloud-trusted router
-    port: 587,               // 🌟 Explicitly routing via standard TLS port 587
-    secure: false,           // 🌟 MUST be false for port 587 (TLS), true is only for 465 (SSL)
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // Must be false for port 587
     auth: {
-        user: process.env.EMAIL_USER, // Kept dynamic for security
-        pass: process.env.EMAIL_PASS  // Kept dynamic for security
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
     },
     tls: {
-        rejectUnauthorized: false // 🌟 Essential on Render to bypass corporate firewall blocks
-    }
+        rejectUnauthorized: false
+    },
+    // 🌟 FORCE IPV4 CONNECTION TO BYPASS RENDER NETWORK FIREWALL WALLS 🌟
+    connectionTimeout: 10000, // 10 seconds before it gives up
+    localAddress: '0.0.0.0'   // Tells Nodemailer to strictly bind to IPv4 (0.0.0.0) instead of IPv6 (::)
 });
 
 // 2. Process form submissions and dispatch the email payload
