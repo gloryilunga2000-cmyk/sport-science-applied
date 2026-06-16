@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
     },
     // 🌟 FORCE IPV4 CONNECTION TO BYPASS RENDER NETWORK FIREWALL WALLS 🌟
     connectionTimeout: 10000, // 10 seconds before it gives up
-    localAddress: '0.0.0.0'   // Tells Nodemailer to strictly bind to IPv4 (0.0.0.0) instead of IPv6 (::)
+    family: 4
 });
 
 // 2. Process form submissions and dispatch the email payload
