@@ -1,5 +1,4 @@
-const nodemailer = require('nodemailer');
-JavaScript
+
 const nodemailer = require('nodemailer');
 
 // 1. Configure the email transporter using bulletproof Google settings
